@@ -6,11 +6,11 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.Optional;
 
-public class DatabaseEngin {
+public class DatabaseEngine {
     Connection con;
     @Getter
     MetaData metaData;
-    public DatabaseEngin(String url, String user, String pass) {
+    public DatabaseEngine(String url, String user, String pass) {
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/db", "admin", "root");
@@ -26,10 +26,10 @@ public class DatabaseEngin {
             PreparedStatement st = con.prepareStatement("""
                 SELECT concat(firstname,' ', lastname) as name, st_group.name as group, avg(statement.estimation)
                 FROM student, st_group, statement
-                    where  student.group_id = st_group.id and statement.student_id = student.id and firstname = ?
+                    where  student.group_id = st_group.id and statement.student_id = student.id and lastname like ?
                 GROUP BY st_group.name, firstname, lastname;
                 """);
-            st.setString(1,name);
+            st.setString(1,name+'%');
             ResultSet set = st.executeQuery();
             return Optional.ofNullable(set);
 

@@ -1,6 +1,6 @@
 package com.example.university_course_work.university;
 
-import com.example.university_course_work.database.DatabaseEngin;
+import com.example.university_course_work.database.DatabaseEngine;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
@@ -15,7 +15,7 @@ import java.util.Optional;
 
 @AllArgsConstructor
 public class University {
-    DatabaseEngin engin;
+    DatabaseEngine engin;
     public ArrayList<String> GenerateGroups(int count, int faculty) {
         ArrayList<String> list = new ArrayList<>();
         for (int i = 1; i <= count; i++) {

@@ -1,6 +1,6 @@
 package com.example.university_course_work;
 
-import com.example.university_course_work.database.DatabaseEngin;
+import com.example.university_course_work.database.DatabaseEngine;
 import com.example.university_course_work.database.Transaction;
 import com.example.university_course_work.university.University;
 import lombok.NonNull;
@@ -10,8 +10,8 @@ import java.util.HashMap;
 
 public class FillerDB {
     private University university;
-    private DatabaseEngin engine;
-    FillerDB(@NonNull University university, @NonNull DatabaseEngin engine) {
+    private DatabaseEngine engine;
+    FillerDB(@NonNull University university, @NonNull DatabaseEngine engine) {
         this.engine = engine;
         this.university = university;
     }
